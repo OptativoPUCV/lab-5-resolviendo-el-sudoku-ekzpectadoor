@@ -79,7 +79,7 @@ int is_valid(Node* n){
           numCol =i*3;
           for(int aux = numFila; aux< numFila+3; aux++)
           {
-            for(int aux2=numCol;aux<numCol+3;aux++)
+            for(int aux2=numCol;aux<numCol+3;aux2++)
             {
               numero3 = n->sudo[aux][aux2];
               if(existe(numero3, cuadricula) == 0) return 0;
