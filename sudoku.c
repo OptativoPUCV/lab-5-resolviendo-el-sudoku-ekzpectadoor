@@ -47,11 +47,11 @@ int existe(int numero, List* lista)
 {
   if(lista == NULL) return 1;
   
-  int dato = first(lista);
+  void* dato = first(lista);
   while(dato != NULL)
   {
-    int num = dato;
-    if(num == numero) return 0;
+    int* num = (int*)dato;
+    if((*num) == numero) return 0;
     dato = next(lista);
   }
   return 1;
