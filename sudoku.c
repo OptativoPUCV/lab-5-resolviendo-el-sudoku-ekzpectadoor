@@ -145,7 +145,7 @@ Node* DFS(Node* initial, int* cont){
   Stack * pila = createStack();
   *cont = 0;
   push(pila, initial);
-  while(pila != NULL)
+  while(top(pila) != NULL)
   {
     Node * n = top(pila);
     pop(pila);
