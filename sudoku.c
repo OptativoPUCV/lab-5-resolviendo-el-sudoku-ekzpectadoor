@@ -69,7 +69,7 @@ int is_valid(Node* n){
         numero2 = n->sudo[j][i];  
         if(existe(numero1, columna) || existe(numero2,fila))
         {
-          return 1;
+          return 0;
         }
         pushBack(columna, &numero1);
         pushBack(fila,&numero2);
@@ -82,7 +82,7 @@ int is_valid(Node* n){
             for(int aux2=numCol;aux<numCol+3;aux++)
             {
               numero3 = n->sudo[aux][aux2];
-              if(existe(numero3, cuadricula)) return 1;
+              if(existe(numero3, cuadricula)) return 0;
               pushBack(cuadricula, &numero3);
             }
           }
