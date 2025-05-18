@@ -61,7 +61,8 @@ List* get_adj_nodes(Node* n){
           for(int numero=1; numero<10; numero++)
           {
             Node* adjunto = copy(n);
-            adjunto->sudo[i][j]= numero;  
+            adjunto->sudo[i][j]= numero;
+            pushBack(list, adjunto);  
           }
         }
       }
