@@ -71,8 +71,8 @@ int is_valid(Node* n){
         {
           return 0;
         }
-        pushBack(columna, &numero1);
-        pushBack(fila,&numero2);
+        pushBack(columna, numero1);
+        pushBack(fila,numero2);
         if(i<3 && j<3)
         {
           numFila = j *3;
@@ -83,7 +83,7 @@ int is_valid(Node* n){
             {
               numero3 = n->sudo[aux][aux2];
               if(existe(numero3, cuadricula) == 0) return 0;
-              pushBack(cuadricula, &numero3);
+              pushBack(cuadricula, numero3);
             }
           }
         }
