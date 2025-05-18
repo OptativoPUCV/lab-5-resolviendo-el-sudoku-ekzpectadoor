@@ -122,7 +122,7 @@ List* get_adj_nodes(Node* n){
             adjunto->sudo[i][j]= numero;
             if(is_valid(adjunto) == 1)
             {
-              pushBack(list, adjunto);
+              pushBack(list, &adjunto);
               return list;
             }  
           }
