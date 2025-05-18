@@ -43,7 +43,7 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int existe(List* lista, int numero)
+int existe(int numero, List* lista)
 {
   if(lista == NULL) return 1;
   
