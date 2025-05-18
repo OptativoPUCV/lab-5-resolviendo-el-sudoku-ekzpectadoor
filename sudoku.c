@@ -73,6 +73,11 @@ int is_valid(Node* n){
         }
         pushBack(columna, &numero1);
         pushBack(fila,&numero2);
+        if(j+1 == 9)
+        {
+          clean(columna);
+          clean(fila);
+        }
         if(i<3 && j<3)
         {
           numFila = j *3;
