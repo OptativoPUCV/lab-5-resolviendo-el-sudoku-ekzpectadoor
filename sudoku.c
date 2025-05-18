@@ -43,19 +43,7 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int existe(int numero, List* lista)
-{
-  if(lista == NULL) return 1;
-  
-  void* dato = first(lista);
-  while(dato != NULL)
-  {
-    int* num = (int*)dato;
-    if((*num) == numero) return 0;
-    dato = next(lista);
-  }
-  return 1;
-}
+
 int is_valid(Node* n){
     int i, j;
     for(i=0;i<9;i++)
@@ -138,7 +126,19 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
-    return 0;
+    int i, j;
+    for(i=0;i<9;i++)
+    {
+      for(j=0;j<9;j++)
+      {
+        int numero = n->sudo[i][j];
+        if(numero == 0)
+        {
+          return 0;
+        }
+      }
+    }
+    return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
