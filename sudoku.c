@@ -129,6 +129,7 @@ List* get_adj_nodes(Node* n){
               free(adjunto);
             }  
           }
+          return list;
         }
       }
     }  
