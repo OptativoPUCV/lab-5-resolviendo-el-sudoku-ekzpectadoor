@@ -43,8 +43,55 @@ void print_node(Node* n){
     printf("\n");
 }
 
+int existe(List* lista, int numero)
+{
+  if(lista == NULL) return 1;
+  
+  void* dato = first(lista);
+  while(dato != NULL)
+  {
+    int* num = (int*)dato;
+    if(num == numero) return 0;
+    dato = next(lista);
+  }
+  return 1;
+}
 int is_valid(Node* n){
-
+    List* columna = createList();
+    List* fila = createList();
+    List* cuadricula = createList();
+    int i, j, numero1, numero2,numero3,numFila,numCol;
+    for(i=0;i<9;i++)
+    {
+      for(j=0;j<9;j++)
+      {
+        numero1 = n->sudo[i][j];
+        numero2 = n->sudo[j][i];  
+        if(existe(numero1, columna) || existe(numero2,fila))
+        {
+          return 1;
+        }
+        pushBack(columna, &numero1);
+        pushBack(fila,&numero2);
+        if(i<3 && j<3)
+        {
+          numFila = j *3;
+          numCol =i*3;
+          for(int aux = numFila; aux< numFila+3; aux++)
+          {
+            for(int aux2=numCol;aux<numCol+3;aux++)
+            {
+              numero3 = n->sudo[aux][aux2];
+              if(existe(numero3, cuadricula)) return 1;
+              pushBack(cuadricula, &numero3);
+            }
+          }
+        }
+      }
+    }
+    clean(columna);
+    clean(fila);
+    clean(cuadricula);
     return 1;
 }
 

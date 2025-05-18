@@ -10,3 +10,51 @@ Sat, May 17, 2025  9:49:02 PM:
  tests:  2|4
 total_score: 15/70
 78e51ed
+Sat, May 17, 2025 11:33:30 PM: 
+ sudoku.c | 49 ++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 48 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'existe':
+sudoku.c:54:12: error: comparison between pointer and integer [-Werror]
+     if(num == numero) return 0;
+            ^~
+sudoku.c: In function 'is_valid':
+sudoku.c:70:19: error: passing argument 1 of 'existe' makes pointer from integer without a cast [-Werror=int-conversion]
+         if(existe(numero1, columna) || existe(numero2,fila))
+                   ^~~~~~~
+sudoku.c:46:5: note: expected 'List * {aka struct List *}' but argument is of type 'int'
+ int existe(List* lista, int numero)
+     ^~~~~~
+sudoku.c:70:28: error: passing argument 2 of 'existe' makes integer from pointer without a cast [-Werror=int-conversion]
+         if(existe(numero1, columna) || existe(numero2,fila))
+                            ^~~~~~~
+sudoku.c:46:5: note: expected 'int' but argument is of type 'List * {aka struct List *}'
+ int existe(List* lista, int numero)
+     ^~~~~~
+sudoku.c:70:47: error: passing argument 1 of 'existe' makes pointer from integer without a cast [-Werror=int-conversion]
+         if(existe(numero1, columna) || existe(numero2,fila))
+                                               ^~~~~~~
+sudoku.c:46:5: note: expected 'List * {aka struct List *}' but argument is of type 'int'
+ int existe(List* lista, int numero)
+     ^~~~~~
+sudoku.c:70:55: error: passing argument 2 of 'existe' makes integer from pointer without a cast [-Werror=int-conversion]
+         if(existe(numero1, columna) || existe(numero2,fila))
+                                                       ^~~~
+sudoku.c:46:5: note: expected 'int' but argument is of type 'List * {aka struct List *}'
+ int existe(List* lista, int numero)
+     ^~~~~~
+sudoku.c:85:25: error: passing argument 1 of 'existe' makes pointer from integer without a cast [-Werror=int-conversion]
+               if(existe(numero3, cuadricula)) return 1;
+                         ^~~~~~~
+sudoku.c:46:5: note: expected 'List * {aka struct List *}' but argument is of type 'int'
+ int existe(List* lista, int numero)
+     ^~~~~~
+sudoku.c:85:34: error: passing argument 2 of 'existe' makes integer from pointer without a cast [-Werror=int-conversion]
+               if(existe(numero3, cuadricula)) return 1;
+                                  ^~~~~~~~~~
+sudoku.c:46:5: note: expected 'int' but argument is of type 'List * {aka struct List *}'
+ int existe(List* lista, int numero)
+     ^~~~~~
+cc1.exe: all warnings being treated as errors
+0d10a25
