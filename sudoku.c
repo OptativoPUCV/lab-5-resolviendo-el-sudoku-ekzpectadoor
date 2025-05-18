@@ -158,8 +158,8 @@ Node* DFS(Node* initial, int* cont){
     while(current != NULL)
     {
       push(pila, current);
-      current = next(current);
-      *cont++;
+      current = next(lista);
+      (*cont)++;
     }
     free(lista);
     free(current);
