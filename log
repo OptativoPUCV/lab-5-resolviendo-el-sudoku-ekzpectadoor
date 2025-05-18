@@ -80,3 +80,20 @@ sudoku.c:53:15: error: initialization makes integer from pointer without a cast 
                ^
 cc1.exe: all warnings being treated as errors
 8867eaa
+Sat, May 17, 2025 11:35:53 PM: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'existe':
+sudoku.c:50:14: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+   int dato = first(lista);
+              ^~~~~
+sudoku.c:51:14: error: comparison between pointer and integer [-Werror]
+   while(dato != NULL)
+              ^~
+sudoku.c:55:10: error: assignment makes integer from pointer without a cast [-Werror=int-conversion]
+     dato = next(lista);
+          ^
+cc1.exe: all warnings being treated as errors
+597d72b
