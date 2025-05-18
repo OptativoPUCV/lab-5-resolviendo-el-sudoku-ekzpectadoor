@@ -57,73 +57,51 @@ int existe(int numero, List* lista)
   return 1;
 }
 int is_valid(Node* n){
-    List* lista = createList();
-    int i, j, numero;
+    int i, j;
     for(i=0;i<9;i++)
     {
+      int visitado[10]= {0};
       for(j=0;j<9;j++)
       {
-        numero = n->sudo[i][j];
+        int numero = n->sudo[i][j];
         if(numero == 0)
         {
           continue;
         }
-        if(existe(numero,lista))
-        {
-          return 0;
-        }
-        pushBack(lista,&numero);
-        if(j+1 == 9)
-        {
-          clean(lista);
-        }
+        if(visitado[numero])return 0;
+        visitado[numero] =1;
+
+        
       }
     }
-    clean(lista);
     for(i=0;i<9;i++)
     {
+      int visitado[10]= {0};
       for(j=0;j<9;j++)
       {
-        numero = n->sudo[j][i];
+        int numero = n->sudo[j][i];
         if(numero == 0)
         {
           continue;
         }
-        if(existe(numero,lista))
-        {
-          return 0;
-        }
-        pushBack(lista,&numero);
-        if(j+1 == 9)
-        {
-          clean(lista);
-        }
+        if(visitado[numero])return 0;
+        visitado[numero] =1;
+    
       }
     }
-    clean(lista);
-    for(i=0;i<3;i++)
-    {
-      for(j=0;j<3;j++)
-      {
-        int i2= i*3;
-        int j2= j*3;
-        for(int aux=i2; aux<i2+3;aux++)
-        {
-          for(int aux2=j2; aux2<j2+3;aux2++)
-          {
-            numero = n->sudo[aux][aux2];
-            if(numero == 0)continue;
-            if(existe(numero,lista))return 0;
-            pushBack(lista, &numero);
-            if(aux2+1 == j2+3)
-            {
-              clean(lista);
-            }
-          }
-        }
+    for (int k = 0; k < 9; k++) { 
+      int visitado[10] = {0};
+      for (int p = 0; p < 9; p++) 
+      { 
+        int i = 3 * (k / 3) + (p / 3);
+        int j = 3 * (k % 3) + (p % 3);
+        int num = n->sudo[i][j];
+        if (num == 0) continue;
+        if (num < 1 || num > 9) return 0;
+        if (visitado[num]) return 0;
+        visitado[num] = 1;
       }
     }
-    clean(lista);
 
     return 1;
 }
