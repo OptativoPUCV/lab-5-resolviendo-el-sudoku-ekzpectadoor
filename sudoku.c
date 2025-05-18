@@ -50,7 +50,7 @@ int existe(int numero, List* lista)
   void* dato = first(lista);
   while(dato != NULL)
   {
-    int* num = (int*)dato;
+    int num = (int*)dato;
     if(num == numero) return 0;
     dato = next(lista);
   }
