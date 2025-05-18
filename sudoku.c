@@ -73,7 +73,7 @@ int is_valid(Node* n){
         }
         pushBack(columna, &numero1);
         pushBack(fila,&numero2);
-        if(j+1 == 9)
+        if(i+1 == 9)
         {
           clean(columna);
           clean(fila);
@@ -89,6 +89,10 @@ int is_valid(Node* n){
               numero3 = n->sudo[aux][aux2];
               if(existe(numero3, cuadricula) ==0) return 0;
               pushBack(cuadricula, &numero3);
+              if((aux+1 == numFila+3) && (aux2+1 == numCol+3))
+              {
+                clean(cuadricula);
+              }
             }
           }
         }
