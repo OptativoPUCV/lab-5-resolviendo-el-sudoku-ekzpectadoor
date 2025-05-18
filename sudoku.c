@@ -57,50 +57,74 @@ int existe(int numero, List* lista)
   return 1;
 }
 int is_valid(Node* n){
-    List* columna = createList();
-    List* fila = createList();
-    List* cuadricula = createList();
-    int i, j, numero1, numero2,numero3,numFila,numCol;
+    List* lista = createList();
+    int i, j, numero;
     for(i=0;i<9;i++)
     {
       for(j=0;j<9;j++)
       {
-        numero1 = n->sudo[i][j];
-        numero2 = n->sudo[j][i];  
-        if((existe(numero1, columna) == 0) || (existe(numero2,fila)==0))
+        numero = n->sudo[i][j];
+        if(numero == 0)
+        {
+          continue;
+        }
+        if(existe(numero,lista))
         {
           return 0;
         }
-        pushBack(columna, &numero1);
-        pushBack(fila,&numero2);
-        if(i+1 == 9)
+        pushBack(lista,&numero);
+        if(j+1 == 9)
         {
-          clean(columna);
-          clean(fila);
+          clean(lista);
         }
-        if(i<3 && j<3)
+      }
+    }
+    clean(lista);
+    for(i=0;i<9;i++)
+    {
+      for(j=0;j<9;j++)
+      {
+        numero = n->sudo[j][i];
+        if(numero == 0)
         {
-          numFila = j *3;
-          numCol =i*3;
-          for(int aux = numFila; aux< numFila+3; aux++)
+          continue;
+        }
+        if(existe(numero,lista))
+        {
+          return 0;
+        }
+        pushBack(lista,&numero);
+        if(j+1 == 9)
+        {
+          clean(lista);
+        }
+      }
+    }
+    clean(lista);
+    for(i=0;i<3;i++)
+    {
+      for(j=0;j<3;j++)
+      {
+        int i2= i*3;
+        int j2= j*3;
+        for(int aux=i2; aux<i2+3;aux++)
+        {
+          for(int aux2=j2; aux2<j2+3;aux2++)
           {
-            for(int aux2=numCol;aux2<numCol+3;aux2++)
+            numero = n->sudo[aux][aux2];
+            if(numero == 0)continue;
+            if(existe(numero,lista))return 0;
+            pushBack(lista, &numero);
+            if(aux2+1 == j2+3)
             {
-              numero3 = n->sudo[aux][aux2];
-              if(existe(numero3, cuadricula) ==0) return 0;
-              pushBack(cuadricula, &numero3);
-              if((aux+1 == numFila+3) && (aux2+1 == numCol+3))
-              {
-                clean(cuadricula);
-              }
+              clean(lista);
             }
           }
         }
       }
     }
-    clean(columna);
-    clean(fila);
-    clean(cuadricula);
+    clean(lista);
+
     return 1;
 }
 
