@@ -152,3 +152,9 @@ list.h:23:6: note: expected 'void *' but argument is of type 'int'
       ^~~~~~~~
 cc1.exe: all warnings being treated as errors
 c0ec521
+Sat, May 17, 2025 11:41:43 PM: 
+ sudoku.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+ tests:  2|4
+total_score: 15/70
+06cff04

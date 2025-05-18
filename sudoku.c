@@ -71,19 +71,19 @@ int is_valid(Node* n){
         {
           return 0;
         }
-        pushBack(columna, numero1);
-        pushBack(fila,numero2);
+        pushBack(columna, &numero1);
+        pushBack(fila,&numero2);
         if(i<3 && j<3)
         {
           numFila = j *3;
           numCol =i*3;
           for(int aux = numFila; aux< numFila+3; aux++)
           {
-            for(int aux2=numCol;aux<numCol+3;aux2++)
+            for(int aux2=numCol;aux2<numCol+3;aux2++)
             {
               numero3 = n->sudo[aux][aux2];
-              if(existe(numero3, cuadricula) == 0) return 0;
-              pushBack(cuadricula, numero3);
+              if(existe(numero3, cuadricula) ==0) return 0;
+              pushBack(cuadricula, &numero3);
             }
           }
         }
